@@ -33,17 +33,17 @@
     };
 in {
   x86_64-linux = {
-    jet1_latest = buildVersion {
+    jet1 = buildVersion {
       profile = "server";
       customSuffix = "jet1";
     };
 
-    jet2_latest = buildVersion {
+    jet2 = buildVersion {
       profile = "balanced";
       customSuffix = "jet2";
     };
 
-    jet3_latest = buildVersion {
+    jet3 = buildVersion {
       profile = "performance";
       customSuffix = "jet3";
     };
