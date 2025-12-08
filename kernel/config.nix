@@ -147,4 +147,12 @@ in {
   SECURITY_SELINUX_DEVELOP = yes; # Development support
   SECURITY_SELINUX_AVC_STATS = yes; # Statistics
   DEFAULT_SECURITY_SELINUX = no; # Don't enable by default
+
+  # Remove Legacy Devices and Protocols
+  ATM = no;
+  DECNET = no;
+  IPX = no;
+  PARPORT = no;
+  PCMCIA = no;
+  ISDN = no;
 }
