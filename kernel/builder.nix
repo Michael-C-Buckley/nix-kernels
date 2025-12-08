@@ -6,7 +6,7 @@
 }: {
   version,
   hash,
-  profile ? "server",
+  profile,
   hostname ? "",
   customSuffix ? "jet",
   x86version ? "3",
@@ -15,7 +15,6 @@
   inherit (pkgs) lib stdenv gccStdenv buildLinux kernelPatches;
   inherit (lib.versions) pad majorMinor;
 
-  vendorSuffix = "xanmod1";
   pname = "linux-xanmod";
   modDirVersion = pad 3 "${version}-${customSuffix}";
 
@@ -36,7 +35,7 @@
       src = pkgs.fetchFromGitLab {
         owner = "xanmod";
         repo = "linux";
-        rev = "refs/tags/${version}-${vendorSuffix}";
+        rev = "refs/tags/${version}-xanmod1";
         inherit hash;
       };
 

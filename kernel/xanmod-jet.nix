@@ -16,22 +16,19 @@
 {pkgs}: let
   # Import modular components
   profileConfigs = import ./profiles.nix;
-  versions = import ./versions.nix;
   buildCustomKernel = import ./builder.nix {
     inherit pkgs profileConfigs;
   };
 
   # Helper to build a specific version with a profile
   buildVersion = {
-    versionKey ? "6.17.11",
     profile,
     customSuffix,
     x86version ? "3", # Default to v3, but allow override
-  }: let
-    versionInfo = versions.${versionKey};
-  in
+  }:
     buildCustomKernel {
-      inherit (versionInfo) version hash;
+      version = "6.17.11";
+      hash = "sha256-NJQ67MOjFMScwECxQd00F3SZ+kITbuBp/3imNXdUqlQ=";
       inherit profile customSuffix x86version;
     };
 in {
